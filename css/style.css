@@ -283,7 +283,7 @@ summary {
 }
 
 /* スマホ表示 */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 
   .menu-toggle {
     display: block;
@@ -296,5 +296,51 @@ summary {
   .nav.open {
     display: flex;
     flex-direction: column;
+  }
+} */
+
+/* ===== スマホ用 ハンバーガーメニュー（ドロワー） ===== */
+
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  /* ナビ本体（非表示時） */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: #ffffff;
+    padding: 100px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  /* 開いた状態 */
+  .nav.open {
+    right: 0;
+  }
+
+  .nav a {
+    font-size: 1.1rem;
+  }
+
+  /* PC用ナビはスマホでは消す */
+  .header-inner {
+    position: relative;
   }
 }
