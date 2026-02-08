@@ -8,6 +8,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <link rel="icon" href="images/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
+
+
 </head>
 <body>
 
@@ -64,7 +71,7 @@
   </section>
 
   <!-- 業務内容 -->
-  <section id="service" class="section">
+  <section id="service" class="section ">
     <div class="container">
       <h2>業務内容</h2>
       <div class="grid grid-3">
@@ -133,13 +140,33 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="section">
+  <!-- <section id="faq" class="section">
     <div class="container">
       <h2>よくある質問</h2>
       <details><summary>本当に初回無料ですか？</summary><p>はい。お気軽にどうぞ。</p></details>
       <details><summary>小規模事業でも依頼できますか？</summary><p>もちろん可能です。</p></details>
     </div>
-  </section>
+
+  </section> -->
+
+  <section id="faq" class="section section-sub section-alt">
+  <div class="container faq">
+    <h2>よくある質問</h2>
+
+    <details class="faq-item">
+      <summary>本当に初回無料ですか？</summary>
+      <p>はい。お気軽にどうぞ。</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>小規模事業でも依頼できますか？</summary>
+      <p>もちろん可能です。</p>
+    </details>
+
+  </div>
+</section>
+
+
 
   <!-- 実績 -->
   <section id="works" class="section section-alt">
@@ -161,8 +188,11 @@
 </main>
 
 <footer class="site-footer">
-  © サンプル社労士事務所
+  <div class="container">
+    <small>© 2026 サンプル社労士事務所</small>
+  </div>
 </footer>
+
 <script>
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav');
@@ -189,6 +219,52 @@
   document.querySelectorAll('.nav a').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
+
+  // 
+  // const sections = document.querySelectorAll('.section');
+
+  // const observer = new IntersectionObserver(
+  //   entries => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting) {
+  //         entry.target.classList.add('is-visible');
+  //       }
+  //     });
+  //   },
+  //   {
+  //     threshold: 0.15
+  //   }
+  // );
+
+  // sections.forEach(section => observer.observe(section));
+
+//
+  const targets = document.querySelectorAll('.section, .card');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  targets.forEach(el => observer.observe(el));
+
+  //
+  const header = document.querySelector('.site-header');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header.classList.add('is-scrolled');
+    } else {
+      header.classList.remove('is-scrolled');
+    }
+  });
+
 </script>
 </body>
 </html>
