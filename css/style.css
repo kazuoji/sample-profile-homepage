@@ -271,3 +271,54 @@ summary {
   font-size: 0.9rem;
   color: #888;
 }
+
+/* ===== ヘッダーメニュー（スマホ対応） ===== */
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* スマホ表示 */
+@media (max-width: 768px) {
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    min-width: 200px;
+    padding: 1rem;
+    z-index: 1000;
+  }
+
+  .nav a {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav a:last-child {
+    border-bottom: none;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+}
