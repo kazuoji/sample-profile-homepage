@@ -27,6 +27,8 @@
   </div>
 </header>
 
+<div class="menu-overlay"></div>
+
 <main id="home">
 
   <!-- Hero -->
@@ -164,9 +166,28 @@
 <script>
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav');
+  const overlay = document.querySelector('.menu-overlay');
+
+  const openMenu = () => {
+    nav.classList.add('open');
+    overlay.classList.add('active');
+    toggle.textContent = '✕';
+  };
+
+  const closeMenu = () => {
+    nav.classList.remove('open');
+    overlay.classList.remove('active');
+    toggle.textContent = '☰';
+  };
 
   toggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
+    nav.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', closeMenu);
   });
 </script>
 </body>
