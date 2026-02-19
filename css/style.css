@@ -2,10 +2,11 @@
    カラートーン（薄めブルー）
 ===================== */
 :root {
-  --main: #60a5fa;        /* メインブルー */
-  --main-dark: #2563eb;  /* 濃いブルー */
-  --bg: #f7faff;         /* 全体背景 */
-  --accent: #eaf2ff;     /* セクション背景 */
+  --main: #518bd0;        /* メインブルー */
+  --main-dark: #1c49aa;  /* 濃いブルー */
+  --bg: #A8B8D8;         /* 全体背景 */
+  --accent: #8B9DC3;     /* セクション背景 */
+  --herobg: #afbbd4;     /* セクション背景 */
   --text: #1f2937;
   --gray: #6b7280;
   --white: #ffffff;
@@ -17,7 +18,8 @@
 
 body {
   margin: 0;
-  font-family: 'Noto Sans JP', sans-serif;
+  /* font-family: 'Noto Sans JP', sans-serif; */
+  font-family: 'Zen Maru Gothic', sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.7;
@@ -87,6 +89,7 @@ h2 {
 }
 
 .header-inner {
+  font-family: 'Zen Maru Gothic', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -129,12 +132,36 @@ h2 {
 ===================== */
 .hero {
   padding: 120px 0 140px;
-  background: linear-gradient(180deg, var(--accent), var(--bg));
+  background: linear-gradient(135deg, var(--herobg), var(--bg));
   position: relative;
   text-align: center; /* テキストをセンター寄りに */
+  color: white;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -30vw;
+    right: -10vw;
+    width: 60vw;
+    height: 60vw;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -20vw;
+    left: -5vw;
+    width: 50vw;
+    height: 50vw;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
 }
 
 .hero h1 {
+  font-family: 'Zen Maru Gothic', sans-serif;
   font-size: 3rem;
   margin-bottom: 24px;
 }
